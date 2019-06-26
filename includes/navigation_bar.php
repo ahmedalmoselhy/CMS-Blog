@@ -19,7 +19,7 @@
                         $select_all_cats = mysqli_query($connection, $query);
                         while($row = mysqli_fetch_assoc($select_all_cats)){
                             $cat = $row['cat_title'];
-                            echo "<li>{$cat}</li>";
+                            echo "<li><a href='#'>{$cat}</a></li>";
                         }
                     ?>
                 </ul>

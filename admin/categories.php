@@ -60,12 +60,21 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                        // Find All Categories
                                         $query = "SELECT * FROM categories";
                                         $select_all_cats = mysqli_query($connection, $query);
                                         while($row = mysqli_fetch_assoc($select_all_cats)){
                                             $id = $row['id'];
                                             $cat = $row['cat_title'];
-                                            echo "<tr><td>{$id}</td><td>{$cat}</td></tr>";
+                                            echo "<tr><td>{$id}</td><td>{$cat}</td><td><a href='categories.php?delete={$id}'>Delete</a></td></tr>";
+                                        }
+                                    ?>
+                                    <?php
+                                        if(isset($_GET['delete'])){
+                                            $del_id = $_GET['delete'];
+                                            $del_query = "DELETE FROM categories WHERE id = {$del_id}";
+                                            $del_result = mysqli_query($connection, $del_query);
+                                            header("Location: categories.php");
                                         }
                                     ?>
                                 </tbody>

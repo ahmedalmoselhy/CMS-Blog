@@ -1,19 +1,5 @@
 <?php include "includes/header.php"; ?>
-<?php
-    $add_res = "";
-    $output = "";
-    if(isset($_POST['submit'])){
-        $new_cat = $_POST['cat_title'];
-        if($new_cat == "" || empty($new_cat)){
-            $output = "CAN'T HAVE EMPTY CATEGORY NAME";
-        }
-        else{
-            $add_query = "INSERT INTO categories(cat_title) VALUES ('{$new_cat}')";
-            $add_res = mysqli_query($connection, $add_query);
-        }
-        
-    }
-?>
+
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -31,15 +17,17 @@
                         </h1>
                         <div class="col-xs-6">
                             <form action="" method="post">
-                                <div class="form-group">
-                                    <label for="cat_title">Add Category</label>
-                                    <input class="form-control" type="text" name="cat_title">
-                                </div>
-                                <div class="form-group">
-                                    <input class="btn btn-primary" type="submit" name="submit" value="Add Category">
-                                </div>
-                                <div>
-                                    <?php
+                            <?php
+                                $add_res = "";
+                                $output = "";
+                                if(isset($_POST['submit'])){
+                                    $new_cat = $_POST['cat_title'];
+                                    if($new_cat == "" || empty($new_cat)){
+                                        echo $output = "<h5 class='text-danger'>CAN'T HAVE EMPTY CATEGORY NAME</h5>";
+                                    }
+                                    else{
+                                        $add_query = "INSERT INTO categories(cat_title) VALUES ('{$new_cat}')";
+                                        $add_res = mysqli_query($connection, $add_query);
                                         if(!$add_res){
                                             $output = "FAILED!";
                                             echo "<h5 class='text-danger'>{$output}</h5>";
@@ -48,7 +36,17 @@
                                             $output = "CATEGORY ADDED!";
                                             echo "<h5 class='text-success'>{$output}</h5>";
                                         }
-                                    ?>
+                                    }
+                                }
+                            ?>
+                                <div class="form-group">
+                                    <label for="cat_title">Add Category</label>
+                                    <input class="form-control" type="text" name="cat_title">
+                                </div>
+                                <div class="form-group">
+                                    <input class="btn btn-primary" type="submit" name="submit" value="Add Category">
+                                </div>
+                                <div>
                                 </div>
                             </form>
                         </div>

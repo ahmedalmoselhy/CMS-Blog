@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 <?php include "../includes/db.php"; ?>
-<?php include "functions.php"; ?>
+<?php include "cat_functions.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 

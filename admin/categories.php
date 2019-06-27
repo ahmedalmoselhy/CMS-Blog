@@ -16,6 +16,7 @@
                             <!-- <small>Subheading</small> -->
                         </h1>
                         <div class="col-xs-6">
+                            <!-- Insert a new category -->
                             <form action="" method="post">
                             <?php
                                 $add_res = "";
@@ -49,10 +50,11 @@
                                 <div>
                                 </div>
                             </form>
+                            <?php include "includes/edit_categories.php"; ?>
                         </div>
                         <div class="col-xs-6">
-                            <table class="table table-bordered table-hover">
-                                <thead>
+                            <table class="table table-bordered table-hover text-center">
+                                <thead class="text-center">
                                     <tr>
                                         <th>ID</th>
                                         <th>Category Title</th>
@@ -66,10 +68,11 @@
                                         while($row = mysqli_fetch_assoc($select_all_cats)){
                                             $id = $row['id'];
                                             $cat = $row['cat_title'];
-                                            echo "<tr><td>{$id}</td><td>{$cat}</td><td><a href='categories.php?delete={$id}'>Delete</a></td></tr>";
+                                            echo "<tr><td>{$id}</td><td>{$cat}</td><td><a href='categories.php?delete={$id}'>Delete</a></td><td><a href='categories.php?edit={$id}'>Update</a></td></tr>";
                                         }
                                     ?>
                                     <?php
+                                        // Delete a category
                                         if(isset($_GET['delete'])){
                                             $del_id = $_GET['delete'];
                                             $del_query = "DELETE FROM categories WHERE id = {$del_id}";

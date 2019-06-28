@@ -30,8 +30,9 @@
             <ul class="list-unstyled">
                 <?php
                     while($row = mysqli_fetch_assoc($select_all_cats)){
+                        $cat_id = $row['id'];
                         $cat = $row['cat_title'];
-                        echo "<li><a href='#'>{$cat}</a></li>";
+                        echo "<li><a href='category.php?c_id={$cat_id}'>{$cat}</a></li>";
                     }
                 ?>
             </ul>

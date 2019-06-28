@@ -105,6 +105,14 @@
 
         move_uploaded_file($post_image_temp, "../images/$post_image");
 
+        if(empty($post_image)){
+            $image_query = "SELECT * FROM posts WHERE post_id = {$edit_id}";
+            $select_image = mysqli_query($connection, $image_query);
+            while($row = mysqli_fetch_assoc($select_image)){
+                $post_image = $row['post_image'];
+            }
+        }
+
         $query = "UPDATE posts SET ";
         $query .= "post_title = '{$post_title}', ";
         $query .= "post_cat_id = {$post_category}, ";

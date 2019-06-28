@@ -73,5 +73,8 @@ if (isset($_GET)) {
             </form>
         </div>
     <?php    }
+    if(isset($_POST['edit_post'])){
+        updatePost();
+    }
 }
 ?>

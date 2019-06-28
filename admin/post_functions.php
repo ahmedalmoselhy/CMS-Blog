@@ -87,4 +87,35 @@
             }
         }
     }
+
+    function updatePost(){
+        global $connection;
+        global $edit_id;
+
+        $post_title = $_POST['title'];
+        $post_author = $_POST['post_author'];
+        $post_category = $_POST['post_category'];
+        $post_status = $_POST['post_status'];
+
+        $post_image = $_FILES['image']['name'];
+        $post_image_temp = $_FILES['image']['tmp_name'];
+
+        $post_tags = $_POST['post_tags'];
+        $post_content = $_POST['post_content'];
+
+        move_uploaded_file($post_image_temp, "../images/$post_image");
+
+        $query = "UPDATE posts SET ";
+        $query .= "post_title = '{$post_title}', ";
+        $query .= "post_cat_id = {$post_category}, ";
+        $query .= "author_id = {$post_author}, ";
+        $query .= "post_status = '{$post_status}', ";
+        $query .= "post_tags = '{$post_tags}', ";
+        $query .= "content = '{$post_content}', ";
+        $query .= "post_image = '{$post_image}' ";
+        $query .= "WHERE post_id = {$edit_id}";
+
+        $update_result = mysqli_query($connection, $query);
+        header("Location: posts.php");
+    }
 ?>

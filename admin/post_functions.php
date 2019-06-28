@@ -17,6 +17,8 @@
             $tags = $row['post_tags'];
             $comments_count = $row['comments_count'];
             $post_status = $row['post_status'];
+            // Get category name instead of id
+            $category = getCategory($category);
             // Display Data in Rows
             echo "<tr>";
             echo "<td>{$id}</td>";
@@ -125,5 +127,16 @@
 
         $update_result = mysqli_query($connection, $query);
         header("Location: posts.php");
+    }
+
+    function getCategory($cat_id){
+        global $connection;
+        $cat_name = "";
+        $query = "SELECT * FROM categories WHERE id = {$cat_id}";
+        $select_cat = mysqli_query($connection, $query);
+        while($row = mysqli_fetch_assoc($select_cat)){
+            $cat_name = $row['cat_title'];
+        }
+        return $cat_name;
     }
 ?>

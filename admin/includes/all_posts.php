@@ -42,7 +42,7 @@
             echo "<td>{$title}</td>";
             echo "<td>{$author}</td>";
             echo "<td>{$date}</td>";
-            echo "<td><img width='100' src='../{$image}' alt=''></td>";
+            echo "<td><img width='100' src='../images/{$image}' alt=''></td>";
             echo "<td>{$tags}</td>";
             echo "<td>{$comments_count}</td>";
             echo "<td>{$post_status}</td>";

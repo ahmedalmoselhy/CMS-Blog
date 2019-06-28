@@ -24,4 +24,15 @@
         }
         header("Location: posts.php");
     }
+
+    function deletePost(){
+        global $connection;
+        $id = $_GET['delete'];
+        $del_query = "DELETE FROM posts WHERE post_id = {$id}";
+        $del_result = mysqli_query($connection, $del_query);
+        if (!$del_query) {
+            die("QUERY FAILED! " . mysqli_error($connection));
+        }
+        header("Location: posts.php");
+    }
 ?>

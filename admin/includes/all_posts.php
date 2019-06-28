@@ -46,7 +46,12 @@
             echo "<td>{$tags}</td>";
             echo "<td>{$comments_count}</td>";
             echo "<td>{$post_status}</td>";
+            echo "<td><a href='posts.php?delete={$id}'>Delete Post</a></td>";
             echo "</tr>";
+        }
+
+        if(isset($_GET['delete'])){
+            deletePost();
         }
         ?>
     </tbody>

@@ -47,6 +47,7 @@
             echo "<td>{$comments_count}</td>";
             echo "<td>{$post_status}</td>";
             echo "<td><a href='posts.php?delete={$id}'>Delete Post</a></td>";
+            echo "<td><a href='posts.php?source=edit_post'>Update Post</a></td>";
             echo "</tr>";
         }
 

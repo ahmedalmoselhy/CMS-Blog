@@ -29,7 +29,7 @@
             echo "<td>{$comments_count}</td>";
             echo "<td>{$post_status}</td>";
             echo "<td><a href='posts.php?delete={$id}'>Delete Post</a></td>";
-            echo "<td><a href='posts.php?source=edit_post'>Update Post</a></td>";
+            echo "<td><a href='posts.php?source=edit_post&id={$id}'>Update Post</a></td>";
             echo "</tr>";
         }
     }
@@ -69,5 +69,22 @@
             die("QUERY FAILED! " . mysqli_error($connection));
         }
         header("Location: posts.php");
+    }
+
+    function displayCategories(){
+        global $connection;
+        global $id;
+        $query = "SELECT * FROM categories";
+        $select_all_cats = mysqli_query($connection, $query);
+        while($row = mysqli_fetch_assoc($select_all_cats)){
+            $cat_id = $row['id'];
+            $cat = $row['cat_title'];
+            if($cat_id === $id){
+                echo "<option value='{$cat_id}'>{$cat}</option>";
+            }
+            else{
+                echo "<option value='{$cat_id}'>{$cat}</option>";
+            }
+        }
     }
 ?>

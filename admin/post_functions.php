@@ -58,7 +58,7 @@
         $post_content = mysqli_real_escape_string($connection, $post_content);
 
         // inserting into database
-        $query = "INSERT INTO posts (post_cat_id, post_title, author_id, post_date, post_image, content, post_tags, comments_count, post_status) VALUES ({$post_category}, '{$post_title}', {$post_author}, '{$post_date}', '{$post_image}', '{$post_content}', '{$post_tags}', {$post_comment_count}, '{$post_status}')";
+        $query = "INSERT INTO posts (post_cat_id, post_title, author_id, post_date, post_image, content, post_tags, comments_count, post_status) VALUES ({$post_category}, '{$post_title}', {$post_author}, now(), '{$post_image}', '{$post_content}', '{$post_tags}', {$post_comment_count}, '{$post_status}')";
 
         $posting = mysqli_query($connection, $query);
         if(!$posting){
@@ -111,7 +111,7 @@
         $post_content = $_POST['post_content'];
 
         move_uploaded_file($post_image_temp, "../images/$post_image");
-        
+
         // prevent sql injection
         $post_title = mysqli_real_escape_string($connection, $post_title);
         $post_tags = mysqli_real_escape_string($connection, $post_tags);

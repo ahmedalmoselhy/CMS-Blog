@@ -52,7 +52,7 @@
                         <a href="users.php">Show All Users</a>
                     </li>
                     <li>
-                        <a href="#">Dropdown Item</a>
+                        <a href="users.php?source=add_user">Dropdown Item</a>
                     </li>
                 </ul>
             </li>

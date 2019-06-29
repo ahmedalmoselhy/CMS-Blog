@@ -49,7 +49,7 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-users"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
                     <li>
-                        <a href="#">Dropdown Item</a>
+                        <a href="users.php">Show All Users</a>
                     </li>
                     <li>
                         <a href="#">Dropdown Item</a>

@@ -20,8 +20,8 @@
                         case 'add_user':
                             include "includes/add_user.php";
                             break;
-                        case '000':
-                            include "includes/edit_post.php";
+                        case 'edit_user':
+                            include "includes/edit_user.php";
                             break;
                         default:
                             include "includes/all_users.php";

@@ -12,6 +12,8 @@
             <th>Email</th>
             <th>Image</th>
             <th>Role</th>
+            <th>Promote</th>
+            <th>Demote</th>
             <th>Delete</th>
             <th>Update</th>
         </tr>
@@ -20,7 +22,13 @@
         <?php
         showAllUsers();
         if(isset($_GET['delete'])){
-            
+            deleteUser();
+        }
+        if(isset($_GET['promote'])){
+            promoteUser();
+        }
+        if(isset($_GET['demote'])){
+            demoteUser();
         }
         ?>
     </tbody>

@@ -24,6 +24,8 @@ function showAllUsers()
         echo "<td>{$email}</td>";
         echo "<td><img width='100' src='../images/{$image}' alt=''></td>";
         echo "<td>{$role}</td>";
+        echo "<td><a href='users.php?promote={$id}'>Promote to Admin</a></td>";
+        echo "<td><a href='users.php?demote={$id}'>Demote to Member</a></td>";
         echo "<td><a href='users.php?delete={$id}'>Delete User</a></td>";
         echo "<td><a href='users.php?source=edit_user&id={$id}'>Update User</a></td>";
         echo "</tr>";
@@ -60,4 +62,39 @@ function createUser(){
     if(!$add_user){
         die("QUERY FAILED! " . mysqli_error($connection));
     }
+
+    header("Location: users.php");
+}
+
+function deleteUser(){
+    global $connection;
+    $id = $_GET['delete'];
+    $query = "DELETE FROM users WHERE user_id = {$id}";
+    $result = mysqli_query($connection, $query);
+    if(!$result){
+        die("QUERY FAILED" . mysqli_error($connection));
+    }
+    header("Location: users.php");
+}
+
+function promoteUser(){
+    global $connection;
+    $id = $_GET['promote'];
+    $query = "UPDATE users SET role = 'admin' WHERE user_id = {$id}";
+    $approval = mysqli_query($connection, $query);
+    if(!$approval){
+        die(mysqli_error($connection));
+    }
+    header("Location: users.php");
+}
+
+function demoteUser(){
+    global $connection;
+    $id = $_GET['demote'];
+    $query = "UPDATE users SET role = 'member' WHERE user_id = {$id}";
+    $approval = mysqli_query($connection, $query);
+    if(!$approval){
+        die(mysqli_error($connection));
+    }
+    header("Location: users.php");
 }

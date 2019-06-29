@@ -74,6 +74,7 @@
         $id = $_GET['delete'];
         $del_query = "DELETE FROM posts WHERE post_id = {$id}";
         $del_result = mysqli_query($connection, $del_query);
+        deleteCommentsWithPost($id);
         if (!$del_query) {
             die("QUERY FAILED! " . mysqli_error($connection));
         }
@@ -172,5 +173,11 @@
             die(mysqli_error($connection));
         }
         header("Location: posts.php");
+    }
+
+    function deleteCommentsWithPost($id){
+        global $connection;
+        $query = "DELETE FROM comments WHERE comment_post_id = {$id}";
+        $delete = mysqli_query($connection, $query);
     }
 ?>

@@ -4,7 +4,7 @@
 </h1>
 <?php
 if (isset($_POST['submit'])) {
-    createPost();
+    createUser();
 }
 ?>
 <div class="container">

@@ -19,6 +19,9 @@
     <tbody>
         <?php
         showAllUsers();
+        if(isset($_GET['delete'])){
+            
+        }
         ?>
     </tbody>
 </table>

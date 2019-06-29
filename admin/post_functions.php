@@ -23,7 +23,7 @@
             echo "<tr>";
             echo "<td>{$id}</td>";
             echo "<td>{$category}</td>";
-            echo "<td>{$title}</td>";
+            echo "<td><a href='../post.php?p_id={$id}'>{$title}</a></td>";
             echo "<td>{$author}</td>";
             echo "<td>{$date}</td>";
             echo "<td><img width='100' src='../images/{$image}' alt=''></td>";

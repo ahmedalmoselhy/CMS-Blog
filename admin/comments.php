@@ -24,7 +24,7 @@
                             include "includes/edit_post.php";
                             break;
                         default:
-                            include "includes/all_posts.php";
+                            include "includes/all_comments.php";
                             break;
                     }
                     ?>

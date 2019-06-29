@@ -1,4 +1,3 @@
-
 <form action="" method="post">
     <!-- Edit a category name -->
     <div class="form-group">
@@ -13,7 +12,9 @@
                 $id = $row['id'];
                 $cat = $row['cat_title'];
                 ?>
-                <input value="<?php if (isset($cat)){ echo $cat; } ?>" class="form-control" type="text" name="cat_edit">
+                <input value="<?php if (isset($cat)) {
+                                    echo $cat;
+                                } ?>" class="form-control" type="text" name="cat_edit">
             <?php }
     } ?>
         <?php

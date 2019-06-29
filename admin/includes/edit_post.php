@@ -33,7 +33,7 @@ if (isset($_GET)) {
                     <label for="post_category">Post category</label>
                     <select name="post_category" id="post_category">
                         <?php
-                            displayCategories();
+                        displayCategories();
                         ?>
                     </select>
                 </div>
@@ -61,9 +61,9 @@ if (isset($_GET)) {
 
                 <div class="form-group">
                     <label for="post_content">Post Content</label>
-                    <textarea class="form-control"  name="post_content" id="" cols="30" rows="10">
-                    <?php echo $content; ?>
-                    </textarea>
+                    <textarea class="form-control" name="post_content" id="" cols="30" rows="10">
+                            <?php echo $content; ?>
+                            </textarea>
                 </div>
 
                 <div class="form-group">
@@ -73,8 +73,8 @@ if (isset($_GET)) {
             </form>
         </div>
     <?php    }
-    if(isset($_POST['edit_post'])){
-        updatePost();
-    }
+if (isset($_POST['edit_post'])) {
+    updatePost();
+}
 }
 ?>

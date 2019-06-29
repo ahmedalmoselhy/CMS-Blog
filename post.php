@@ -11,6 +11,7 @@
         <!-- Blog Post Content Column -->
         <div class="col-lg-8">
             <?php
+            $post_id = 0;
             if (isset($_GET['p_id'])) {
                 $post_id = $_GET['p_id'];
                 $query = "SELECT * FROM posts WHERE post_id = {$post_id}";
@@ -39,7 +40,7 @@
             <hr>
 
             <!-- Blog Comments -->
-            <!-- <?php include "comments.php"; ?> -->
+            <?php include "comments.php"; ?>
 
         </div>
 

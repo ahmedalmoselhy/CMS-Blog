@@ -27,6 +27,8 @@ function showAllComments(){
         echo "<td>{$comment_status}</td>";
         echo "<td>{$content}</td>";
         echo "<td>{$email}</td>";
+        echo "<td><a href='#'>Approve</a></td>";
+        echo "<td><a href='#'>Unapprove</a></td>";
         echo "<td><a href='comments.php?delete={$id}'>Delete comment</a></td>";
         echo "</tr>";
     }

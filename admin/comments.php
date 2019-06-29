@@ -17,10 +17,10 @@
                         $source = "";
                     }
                     switch ($source) {
-                        case 'add_post':
+                        case '----':
                             include "includes/add_post.php";
                             break;
-                        case 'edit_post':
+                        case '000':
                             include "includes/edit_post.php";
                             break;
                         default:

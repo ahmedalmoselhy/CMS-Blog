@@ -35,7 +35,11 @@ function showAllComments(){
 }
 
 function deleteComment(){
-
+    $comment_id = $_GET['delete'];
+    global $connection;
+    $query = "DELETE FROM comments WHERE comment_id = {$comment_id}";
+    $delete = mysqli_query($connection, $query);
+    header("Location: comments.php");
 }
 
 function getPost($p_id){

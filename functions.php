@@ -8,4 +8,14 @@
             echo "<h1 class='page-header'>{$cat_name}<small> Posts</small></h1>";
         }
     }
+
+    function commentCount(){
+        global $connection;
+        global $p_id;
+        $query = "UPDATE posts SET comments_count = comments_count + 1 WHERE post_id ={$p_id}";
+        $counter = mysqli_query($connection, $query);
+        if(!$counter){
+            die("FAILED!" . mysqli_error($connection));
+        }
+    }
 ?>

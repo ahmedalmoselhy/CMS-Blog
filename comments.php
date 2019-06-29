@@ -11,6 +11,7 @@ if (isset($_POST['submit'])) {
 
     $query = "INSERT INTO comments(comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_date) VALUES({$p_id}, {$author}, '{$email}', '{$content}', 'unapproved', now())";
     $submit_comment = mysqli_query($connection, $query);
+    commentCount();
     if (!$submit_comment) {
         die(mysqli_error($connection));
     }

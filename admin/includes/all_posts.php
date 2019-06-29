@@ -15,6 +15,10 @@
             <th>Tags</th>
             <th>Comment Count</th>
             <th>Status</th>
+            <th>Publish</th>
+            <th>Unpublish</th>
+            <th>Delete</th>
+            <th>Update</th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +27,12 @@
 
         if(isset($_GET['delete'])){
             deletePost();
+        }
+        if(isset($_GET['publish'])){
+            publishPost();
+        }
+        if(isset($_GET['unpublish'])){
+            draftpost();
         }
         ?>
     </tbody>

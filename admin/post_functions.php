@@ -30,6 +30,8 @@
             echo "<td>{$tags}</td>";
             echo "<td>{$comments_count}</td>";
             echo "<td>{$post_status}</td>";
+            echo "<td><a href='posts.php?publish={$id}'>Publish</a></td>";
+            echo "<td><a href='posts.php?unpublish={$id}'>Unpublish</a></td>";
             echo "<td><a href='posts.php?delete={$id}'>Delete Post</a></td>";
             echo "<td><a href='posts.php?source=edit_post&id={$id}'>Update Post</a></td>";
             echo "</tr>";
@@ -148,5 +150,27 @@
             $cat_name = $row['cat_title'];
         }
         return $cat_name;
+    }
+
+    function publishPost(){
+        global $connection;
+        $id = $_GET['publish'];
+        $query = "UPDATE posts SET post_status = 'published' WHERE post_id = {$id}";
+        $approval = mysqli_query($connection, $query);
+        if(!$approval){
+            die(mysqli_error($connection));
+        }
+        header("Location: posts.php");
+    }
+    
+    function draftpost(){
+        global $connection;
+        $id = $_GET['unpublish'];
+        $query = "UPDATE posts SET post_status = 'draft' WHERE post_id = {$id}";
+        $approval = mysqli_query($connection, $query);
+        if(!$approval){
+            die(mysqli_error($connection));
+        }
+        header("Location: posts.php");
     }
 ?>

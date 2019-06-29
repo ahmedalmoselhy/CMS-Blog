@@ -27,8 +27,8 @@ function showAllComments(){
         echo "<td>{$comment_status}</td>";
         echo "<td>{$content}</td>";
         echo "<td>{$email}</td>";
-        echo "<td><a href='#'>Approve</a></td>";
-        echo "<td><a href='#'>Unapprove</a></td>";
+        echo "<td><a href='comments.php?approve={$id}'>Approve</a></td>";
+        echo "<td><a href='comments.php?unapprove={$id}'>Unapprove</a></td>";
         echo "<td><a href='comments.php?delete={$id}'>Delete comment</a></td>";
         echo "</tr>";
     }
@@ -51,4 +51,26 @@ function getPost($p_id){
         $post = $row['post_title'];
     }
     return $post;
+}
+
+function approveComment(){
+    global $connection;
+    $id = $_GET['approve'];
+    $query = "UPDATE comments SET comment_status = 'approved' WHERE comment_id = {$id}";
+    $approval = mysqli_query($connection, $query);
+    if(!$approval){
+        die(mysqli_error($connection));
+    }
+    header("Location: comments.php");
+}
+
+function unapproveComment(){
+    global $connection;
+    $id = $_GET['unapprove'];
+    $query = "UPDATE comments SET comment_status = 'unapproved' WHERE comment_id = {$id}";
+    $approval = mysqli_query($connection, $query);
+    if(!$approval){
+        die(mysqli_error($connection));
+    }
+    header("Location: comments.php");
 }

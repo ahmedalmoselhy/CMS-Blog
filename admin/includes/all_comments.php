@@ -20,6 +20,12 @@
         if(isset($_GET['delete'])){
             deleteComment();
         }
+        if(isset($_GET['approve'])){
+            approveComment();
+        }
+        if(isset($_GET['unapprove'])){
+            unapproveComment();
+        }
         ?>
     </tbody>
 </table>

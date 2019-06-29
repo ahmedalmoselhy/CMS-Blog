@@ -6,9 +6,9 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Post</th>
-            <th>Date</th>
             <th>Author</th>
+            <th>Date</th>
+            <th>Post</th>
             <th>Status</th>
             <th>Content</th>
             <th>Email</th>

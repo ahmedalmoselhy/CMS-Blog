@@ -17,8 +17,8 @@
                         $source = "";
                     }
                     switch ($source) {
-                        case '----':
-                            include "includes/add_post.php";
+                        case 'add_user':
+                            include "includes/add_user.php";
                             break;
                         case '000':
                             include "includes/edit_post.php";

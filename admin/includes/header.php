@@ -3,6 +3,7 @@
 <?php include "cat_functions.php"; ?>
 <?php include "post_functions.php"; ?>
 <?php include "comment_functions.php"; ?>
+<?php include "user_functions.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -12,10 +12,13 @@
             <th>Email</th>
             <th>Image</th>
             <th>Role</th>
+            <th>Delete</th>
+            <th>Update</th>
         </tr>
     </thead>
     <tbody>
         <?php
+        showAllUsers();
         ?>
     </tbody>
 </table>

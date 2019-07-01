@@ -5,6 +5,12 @@
 <?php include "comment_functions.php"; ?>
 <?php include "user_functions.php"; ?>
 <?php session_start(); ?>
+
+<?php
+if($_SESSION['role'] == 'member'){
+    header("Location: ../");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

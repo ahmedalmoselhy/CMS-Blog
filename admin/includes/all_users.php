@@ -1,5 +1,5 @@
 <h1 class="page-header">
-    All Posts
+    Users
     <!-- <small>Subheading</small> -->
 </h1>
 <table class="table table-bordered table-hover">

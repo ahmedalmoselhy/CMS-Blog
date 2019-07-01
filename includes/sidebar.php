@@ -27,12 +27,13 @@
             </div>
             <br>
             <div class="input-group">
-                <input type="password" name="search" class="form-control" placeholder="password">
+                <input type="password" name="password" class="form-control" placeholder="password">
                 <span class="input-group-btn">
                     <button name="login" class="btn btn-primary" type="submit">Log In
                     </button>
                 </span>
             </div>
+        </form>
             <!-- /.input-group -->
     </div>
 

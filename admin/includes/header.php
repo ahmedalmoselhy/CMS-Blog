@@ -7,7 +7,12 @@
 <?php session_start(); ?>
 
 <?php
-if($_SESSION['role'] == 'member'){
+if(isset($_SESSION['role'])){
+    if($_SESSION['role'] == 'member'){
+        header("Location: ../");
+    }
+}
+else{
     header("Location: ../");
 }
 ?>

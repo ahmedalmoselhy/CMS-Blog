@@ -4,6 +4,7 @@
 <?php include "post_functions.php"; ?>
 <?php include "comment_functions.php"; ?>
 <?php include "user_functions.php"; ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 

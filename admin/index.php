@@ -12,7 +12,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Admin Dashboard
-                            <small>Admin Account Name</small>
+                            <small><?php echo $_SESSION['firstname'] . " " . $_SESSION['lastname']; ?></small>
                             <!-- add name from database -->
                         </h1>
                         <ol class="breadcrumb">

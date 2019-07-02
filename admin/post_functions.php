@@ -180,4 +180,17 @@
         $query = "DELETE FROM comments WHERE comment_post_id = {$id}";
         $delete = mysqli_query($connection, $query);
     }
-?>
+
+    function counterPosts(){
+        global $connection;
+        $counter = 0;
+        $query = "SELECT * FROM posts";
+        $all_posts = mysqli_query($connection, $query);
+        if(!$all_posts){
+            die(mysqli_error($connection));
+        }
+        while(mysqli_fetch_assoc($all_posts)){
+            $counter = $counter + 1;
+        }
+        echo $counter;
+    }

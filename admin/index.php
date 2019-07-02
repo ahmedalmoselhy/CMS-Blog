@@ -25,7 +25,7 @@
                     </ol>
 
                     <!-- /.row -->
-
+<!-- Widgets ---------------------------------------------------------- -->
                     <div class="row">
                         <div class="col-lg-3 col-md-6">
                             <div class="panel panel-primary">
@@ -35,7 +35,7 @@
                                             <i class="fa fa-file-text fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div class='huge'>12</div>
+                                            <div class='huge'><?php counterPosts(); ?></div>
                                             <div>Posts</div>
                                         </div>
                                     </div>
@@ -116,6 +116,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- END OF widgets ---------------------------------- -->
                     <!-- /.row -->
                 </div>
             </div>

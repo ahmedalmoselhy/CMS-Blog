@@ -74,3 +74,17 @@ function unapproveComment(){
     }
     header("Location: comments.php");
 }
+
+function counterComments(){
+    global $connection;
+    $counter = 0;
+    $query = "SELECT * FROM comments";
+    $all_comments = mysqli_query($connection, $query);
+    if(!$all_comments){
+        die(mysqli_error($connection));
+    }
+    while(mysqli_fetch_assoc($all_comments)){
+        $counter = $counter + 1;
+    }
+    echo $counter;
+}

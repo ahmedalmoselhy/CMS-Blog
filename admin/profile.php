@@ -1,6 +1,7 @@
 <?php include "includes/header.php"; ?>
 <?php
-if (isset($_SESSION['username'])) { 
+if (isset($_SESSION['username'])) {
+    
 ?>
 <div id="wrapper">
 
@@ -25,7 +26,7 @@ if (isset($_SESSION['username'])) {
                         die("QUERY FAILED! " . mysqli_error($connection));
                     }
                     while ($row = mysqli_fetch_assoc($all_users)) {
-                        $id = $row['user_id'];
+                        $user_id = $row['user_id'];
                         $username = $row['user_name'];
                         $first_name = $row['first_name'];
                         $last_name = $row['last_name'];
@@ -70,17 +71,28 @@ if (isset($_SESSION['username'])) {
                                 <div class="form-group">
                                     <label for="role">Role</label>
                                     <select name="role" id="role" class="form-control">
-                                        <option value="admin">Admin</option>
-                                        <option value="member">Member</option>
+                                        <option value="admin"><?php echo $role; ?></option>
+                                        <?php
+                                        if($role == 'admin'){
+                                            echo "<option value='member'>Member</option>";
+                                        }
+                                        else {
+                                            echo "<option value='admin'>Admin</option>";
+                                        }
+                                        ?>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="submit" class="form-control btn btn-primary" name="submit" value="Update User">
+                                    <input type="submit" class="form-control btn btn-primary" name="submit" value="Update Profile">
                                 </div>
                             
                         </form>
-                        <?php } } ?>
+                        <?php } }
+                        if(isset($_POST['submit'])){
+                            updateProfile();
+                        }
+                        ?>
                     </div>
                 </div>
 

@@ -139,3 +139,44 @@ function updateUser(){
     }
     header("Location: users.php");
 }
+
+function updateProfile(){
+    global $connection;
+    global $s_user_name;
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $user_name = $_POST['user_name'];
+    $password = $_POST['password'];
+
+    $image = $_FILES['image']['name'];
+    $image_temp = $_FILES['image']['tmp_name'];
+
+    $email = $_POST['email'];
+    $role = $_POST['role'];
+
+    // preventing sql injection
+    $first_name = mysqli_real_escape_string($connection, $first_name);
+    $last_name = mysqli_real_escape_string($connection, $last_name);
+    $user_name = mysqli_real_escape_string($connection, $user_name);
+    $password = mysqli_real_escape_string($connection, $password);
+    $email = mysqli_real_escape_string($connection, $email);
+
+    // move image
+    move_uploaded_file($image_temp, "../images/$image");
+
+    $query = "UPDATE users SET ";
+    $query .= "first_name = '{$first_name}', ";
+    $query .= "last_name = '{$last_name}', ";
+    $query .= "user_name = '{$user_name}', ";
+    $query .= "password = '{$password}', ";
+    $query .= "image = '{$image}', ";
+    $query .= "email = '{$email}', ";
+    $query .= "role = '{$role}' ";
+    $query .= "WHERE user_name = '{$s_user_name}'";
+
+    $result = mysqli_query($connection, $query);
+    if(!$result){
+        die("QUERY FAILED! " . mysqli_error($connection));
+    }
+    header("Location: profile.php");
+}

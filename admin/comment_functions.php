@@ -88,3 +88,17 @@ function counterComments(){
     }
     echo $counter;
 }
+
+function counterCategoriess(){
+    global $connection;
+    $counter = 0;
+    $query = "SELECT * FROM categories";
+    $all_categories = mysqli_query($connection, $query);
+    if(!$all_categories){
+        die(mysqli_error($connection));
+    }
+    while(mysqli_fetch_assoc($all_categories)){
+        $counter = $counter + 1;
+    }
+    echo $counter;
+}

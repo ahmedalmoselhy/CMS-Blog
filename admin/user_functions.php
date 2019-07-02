@@ -180,3 +180,17 @@ function updateProfile(){
     }
     header("Location: profile.php");
 }
+
+function counterUsers(){
+    global $connection;
+    $counter = 0;
+    $query = "SELECT * FROM users";
+    $all_users = mysqli_query($connection, $query);
+    if(!$all_users){
+        die(mysqli_error($connection));
+    }
+    while(mysqli_fetch_assoc($all_users)){
+        $counter = $counter + 1;
+    }
+    echo $counter;
+}

@@ -79,7 +79,7 @@
                                             <i class="fa fa-user fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div class='huge'>23</div>
+                                            <div class='huge'><?php counterUsers(); ?></div>
                                             <div> Users</div>
                                         </div>
                                     </div>

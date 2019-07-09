@@ -128,8 +128,10 @@
                     function drawChart() {
                         var data = google.visualization.arrayToDataTable([
                             ['Data', 'Count'],
-                            ['Posts', <?php counterPosts(); ?>],
-                            ['Comments', <?php counterComments(); ?>],
+                            ['Published Posts', <?php countActivePosts(); ?>],
+                            ['Draft Posts', <?php countDraftPosts(); ?>],
+                            ['Apporved Comments', <?php countActiveComments(); ?>],
+                            ['Unapproved Comments', <?php countDraftComments(); ?>],
                             ['Categories', <?php counterCategoriess(); ?>],
                             ['Users', <?php counterUsers(); ?>]
                         ]);

@@ -89,15 +89,29 @@ function counterComments(){
     echo $counter;
 }
 
-function counterCategoriess(){
+function countActiveComments(){
     global $connection;
     $counter = 0;
-    $query = "SELECT * FROM categories";
-    $all_categories = mysqli_query($connection, $query);
-    if(!$all_categories){
+    $query = "SELECT * FROM comments WHERE comment_status = 'approved'";
+    $all_comments = mysqli_query($connection, $query);
+    if(!$all_comments){
         die(mysqli_error($connection));
     }
-    while(mysqli_fetch_assoc($all_categories)){
+    while(mysqli_fetch_assoc($all_comments)){
+        $counter = $counter + 1;
+    }
+    echo $counter;
+}
+
+function countDraftComments(){
+    global $connection;
+    $counter = 0;
+    $query = "SELECT * FROM comments WHERE comment_status = 'unapproved'";
+    $all_comments = mysqli_query($connection, $query);
+    if(!$all_comments){
+        die(mysqli_error($connection));
+    }
+    while(mysqli_fetch_assoc($all_comments)){
         $counter = $counter + 1;
     }
     echo $counter;

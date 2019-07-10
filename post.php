@@ -32,6 +32,7 @@
                     <hr>
                     <img class="img-responsive" src="images/<?php echo $post_image; ?>" alt="">
                     <hr>
+                    <a class="btn btn-primary" href="admin/posts.php?source=edit_post&id=<?php echo $post_id; ?>">Edit Post <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <p><?php echo $post_content; ?></p>
                 <?php }
         }

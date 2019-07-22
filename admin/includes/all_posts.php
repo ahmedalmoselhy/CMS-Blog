@@ -19,6 +19,7 @@
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
+                <th><input id='selectAllBoxes' type='checkbox'></th>
                 <th>ID</th>
                 <th>Category</th>
                 <th>Title</th>

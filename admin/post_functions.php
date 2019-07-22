@@ -21,6 +21,7 @@
             $category = getCategory($category);
             // Display Data in Rows
             echo "<tr>";
+            echo "<td><input type='checkbox' class='checkBox' name='checkBoxArray[]' value='{$id}'></td>";
             echo "<td>{$id}</td>";
             echo "<td>{$category}</td>";
             echo "<td><a href='../post.php?p_id={$id}'>{$title}</a></td>";
